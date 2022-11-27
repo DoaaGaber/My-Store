@@ -1,0 +1,54 @@
+<div class="bg-dark py-2">
+    <div class="container px-2 px-lg-2 my-2">
+        <div class="text-center text-white">
+            <h1 class="display-2 fw-bolder">MY Store</h1>
+            <p class="lead fw-normal text-white-50 mb-0">Product List | <a routerLink="/cart">Cart</a></p>
+        </div>
+    </div></div>
+    <div class="container px-10 px-lg-11 mt-9">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+    <div class="col mb-5"  >
+        <div class="card h-100" >
+            <ul  style="list-style: none;">
+                <li  *ngFor="let products of listOfproduct" >
+                   <!-- Product image-->
+                   <img class="card-img-top" src="{{products.image}}" alt="..."  width="450" height="300"/>
+                   <!-- Product details-->
+                  <div class="card-body p-2"> 
+                  <div class="text-center">
+                    <p class="fw-bolder" style="overflow:hidden ;" >
+                       
+                        <a [title]="products.title + ' details'"routerLink="/product-details" >
+                            {{products.title}}
+                          </a>
+                    </p>
+                    <p>{{products.price}}</p>
+                    <div class="card-body p-2"> 
+                        <div class="text-center">
+                    <select [(ngModel)]="selectedLevel" style="width: 100px;"  >
+                        <option selected value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                      </select>
+                      </div>
+                      </div>
+                    
+                         
+                    <button class="btn btn-primary"  (click)="addProductToCart(products)">Add to cart</button></div></div>
+                    
+                     
+                    </li>
+                </ul>
+        </div>
+         <app-product-details [product]="product"></app-product-details>
+        
+    </div>
+    
+              
+      
+            
+
+                   
